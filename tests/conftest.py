@@ -1,5 +1,6 @@
 import pytest
 from playwright.sync_api import Page, expect
+from pages.garage_page import GaragePage
 
 @pytest.fixture(scope="session")
 def browser_context_args(browser_context_args):
@@ -28,3 +29,7 @@ def login_ui(page: Page) -> Page:
     page.wait_for_load_state("networkidle")
     expect(page.locator('//app-alert')).to_have_text('You have been successfully logged in')
     yield page
+
+@pytest.fixture
+def garage_page(login_ui) -> GaragePage:
+  return GaragePage(login_ui)

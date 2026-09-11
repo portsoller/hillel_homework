@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Run tests') {
             steps {
-                sh 'python -m pytest tests/'
+                sh 'python -m pytest tests/ --junitxml=result.xml'
             }
         }
         stage('Publish results') {

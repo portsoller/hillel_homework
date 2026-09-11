@@ -1,5 +1,9 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'mcr.microsoft.com/playwright/python:v1.49.0-noble'
+        }
+    }
 
     stages {
         stage('Checkout') {

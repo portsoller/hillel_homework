@@ -11,7 +11,7 @@ pipeline {
         stage('Install dependencies') {
             steps {
                 sh 'pip install --break-system-packages -r requirements.txt'
-                sh 'python -m playwright install --with-deps'
+                sh 'python -m playwright install chromium'
             }
         }
         stage('Run tests') {

@@ -11,6 +11,7 @@ pipeline {
         stage('Install dependencies') {
             steps {
                 sh 'pip install --break-system-packages -r requirements.txt'
+                sh 'python -m playwright install --with-deps'
             }
         }
         stage('Run tests') {
